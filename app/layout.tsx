@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "tailwindcss/tailwind.css"; //never forget this
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
+
 export const metadata: Metadata = {
 	title: "Guess Who: TV Show Edition",
 	description:
@@ -13,7 +14,7 @@ export const amaranth = localFont({
 		},
 	],
 	variable: "--font-amaranth",
-})
+});
 export const elMessiri = localFont({
 	src: [
 		{
@@ -21,7 +22,7 @@ export const elMessiri = localFont({
 		},
 	],
 	variable: "--font-el-messiri",
-})
+});
 export const poppins = localFont({
 	src: [
 		{
@@ -29,15 +30,15 @@ export const poppins = localFont({
 		},
 	],
 	variable: "--font-poppins",
-})
+});
 export const quattrocentoSans = localFont({
 	src: [
 		{
 			path: "../assets/Font/QuattrocentoSans-Regular.ttf",
 		},
 	],
-	variable: "--font-quattroento-sans",
-})
+	variable: "--font-quattrocento-sans",
+});
 
 export default function RootLayout({
 	children,
@@ -46,9 +47,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="bg-darkNavy min-h-dvh h-full min-w-dvw w-full text-red-500">
-				<div className="absolute bg-cyan blur-[120px] -left-40 top-32 h-80 w-80 "></div>
-				<div className="p-3 z-40 flex w-full align-middle items-center flex-col">
+			<body
+				className={`${amaranth.variable} ${poppins.variable} ${elMessiri.variable} ${quattrocentoSans.variable} bg-darkNavy min-h-dvh h-full min-w-dvw w-full text-cyan font-quattrocentoSans`}
+			>
+				<div className="absolute bg-cyan blur-[120px] -left-40 top-32 h-80 w-80 -z-40 "></div>
+				<div className="p-3 !z-40 flex w-full align-middle items-center flex-col">
 					{children}
 				</div>
 			</body>

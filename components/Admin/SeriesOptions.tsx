@@ -1,16 +1,39 @@
-import React from 'react'
-const showList: string[] = ['Friends', 'The Office', 'The Big Bang Theory', 'Two and A Half Men', 'Silicon Valley', 'Seinfeld', 'Parks and Recreations', 'Modern Family', 'How I Met Your Mother', 'Gilmore Girls', 'Community', 'Brooklyn Nine Nine']
-const tvShows = showList.sort()
+"use client";
+import React, { useContext } from "react";
+import { SeriesContext } from "../Contexts/SeriesContext";
+import tvShows from "./showList";
+
 export default function SeriesOptions() {
-  return (
-    <>
-    <select title='Shows List' className='w-full bg-transparent text-cyan border-cyan border-2 p-1 rounded-lg mt-12'>
-      <option value="Select" className='bg-cyan text-white' selected disabled>Select TV Series</option>
-      {tvShows.map(show => (
-        <option value={show} key={Math.random()} className='text-white bg-cyan'>{show}</option>
-      ))}
-    </select>
-    </>
-    
-  )
+	const seriesCtx = useContext(SeriesContext);
+	const selectShow = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+		seriesCtx.setName(e.target.value);
+	};
+	return (
+		<>
+			<select
+				title="Shows List"
+				className="w-full bg-transparent text-cyan border-cyan border-2 p-1 rounded-lg mt-12"
+                onChange={selectShow}
+                value={seriesCtx.name}
+			>
+				<option
+					value="Select"
+					className="bg-cyan text-white"
+					selected
+					disabled
+				>
+					Select TV Series
+				</option>
+				{tvShows.map((show) => (
+					<option
+						value={show}
+						key={Math.random()}
+						className="text-white bg-cyan"
+					>
+						{show}
+					</option>
+				))}
+			</select>
+		</>
+	);
 }

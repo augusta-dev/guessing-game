@@ -13,6 +13,12 @@ const config: Config = {
         cyan: '#0066ff',
         darkCyan: '#006DBB',
         darkerCyan: '#003358',
+      },
+      fontFamily: {
+        amaranth: 'var(--font-amaranth)',
+        elMessiri: 'var(--font-el-messiri)',
+        poppins: 'var(--font-poppins)',
+        quattrocentoSans: 'var(--font-quattrocento-sans)',
       }
     },
   },

@@ -9,7 +9,7 @@ import UploadButton from "./UploadButton";
 export default function AdminPage() {
 	return (
 		<>
-			<Avatar className='mt-4 mb-4' image={woman}></Avatar>
+			<Avatar className='my-4' image={woman}></Avatar>
 			<SeriesOptions></SeriesOptions>
 			<Upload></Upload>
 			<CharacterNames></CharacterNames>

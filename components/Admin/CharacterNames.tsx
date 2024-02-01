@@ -7,6 +7,7 @@ export default function CharacterNames() {
 		const names = e.target.value.split(',')
 		seriesCtx.setCharacters(names);
 	};
+	const number = seriesCtx.characters.length
 
 	return (
 		<div className="w-full">
@@ -17,6 +18,7 @@ export default function CharacterNames() {
 				placeholder="Enter the list of characters in order of the images uploaded. Separate each character by commas."
 				onChange={saveTextHandler}
 			/>
+			<p className="italic">Written {number} Characters So Far</p>
 		</div>
 	);
 }

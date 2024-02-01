@@ -14,7 +14,7 @@ const SeriesProvider: React.FC<{ className?: string; children: ReactNode }> = (
 
 	const [seriesImages, setSeriesImages] = React.useState<string[]>([]);
 	const setImagesHandler = (images: string[]): void => {
-		setSeriesImages([...images, ...seriesImages]);
+		setSeriesImages([...images]);
 		console.log(images);
 	};
 
@@ -22,7 +22,7 @@ const SeriesProvider: React.FC<{ className?: string; children: ReactNode }> = (
 		[],
 	);
 	const setCharactersHandler = (characters: string[]): void => {
-		setSeriesCharacters([...characters, ...seriesCharacters]);
+		setSeriesCharacters([...characters]);
 		console.log(characters);
 	};
 

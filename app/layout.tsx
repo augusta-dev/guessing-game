@@ -48,10 +48,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${amaranth.variable} ${poppins.variable} ${elMessiri.variable} ${quattrocentoSans.variable} bg-darkNavy min-h-dvh h-full min-w-dvw w-full text-cyan font-quattrocentoSans`}
+				className={`${amaranth.variable} ${poppins.variable} ${elMessiri.variable} ${quattrocentoSans.variable} bg-darkNavy  min-w-dvw min-h-dvh w-full h-full text-cyan font-quattrocentoSans`}
 			>
 				<div className="absolute bg-cyan blur-[120px] -left-40 top-32 h-80 w-80 -z-40 "></div>
-				<div className="p-3 !z-40 flex w-full align-middle items-center flex-col">
+				<div className="px-3 py-8 z-40 flex w-full h-full align-middle items-center flex-col justify-between ">
 					{children}
 				</div>
 			</body>

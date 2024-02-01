@@ -5,14 +5,15 @@ import Avatar from "../UI/Avatar";
 import SeriesOptions from "./SeriesOptions";
 import Upload from "./Upload";
 import CharacterNames from "./CharacterNames";
+import UploadButton from "./UploadButton";
 export default function AdminPage() {
 	return (
 		<>
-			<Avatar image={woman}></Avatar>
+			<Avatar className='mt-4 mb-4' image={woman}></Avatar>
 			<SeriesOptions></SeriesOptions>
 			<Upload></Upload>
 			<CharacterNames></CharacterNames>
-			
+			<UploadButton></UploadButton>
 		</>
 	);
 }

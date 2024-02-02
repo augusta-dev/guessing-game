@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 			{ message: "Section created" },
 			{ status: 201 },
 		);
-	} catch (err: unknown) {
+	} catch (err: any) {
 		return NextResponse.json({ message: err.message }, { status: 501 });
 	}
 }

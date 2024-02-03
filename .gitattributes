@@ -1,1 +1,1 @@
-*.avif -diff -merge -binary
+*.avif -diff -merge -binary -push

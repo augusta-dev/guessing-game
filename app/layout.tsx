@@ -9,22 +9,22 @@ export const metadata: Metadata = {
 		"Get ready for a hilarious challenge with your friends, testing your knowledge of iconic sitcom characters from Friends and The Office. One player acts as the host, choosing a character from either show. They can describe the character`&apos`s personality, quirks, or memorable moments without revealing their name. The other players have a limited number of guesses (try 3 attempts for a fast-paced game, or 5 for a more relaxed one). Each guess can be based on the host`&apos`s clues or anything they remember about the characters.",
 };
 
- const amaranth = Amaranth({
+const amaranth = Amaranth({
 	subsets: ['latin'],
 	weight: ["400" , "700"],
 	variable: "--font-amaranth",
 });
-export const elMessiri = El_Messiri({
+const elMessiri = El_Messiri({
 	subsets: ['latin'],
 	weight: ["400" , '500', '600', "700"],
 	variable: "--font-el-messiri",
 });
-export const poppins = Poppins({
+const poppins = Poppins({
 	subsets: ['latin'],
 	weight: ["400" , '200', "700"],
 	variable: "--font-poppins",
 });
-export const quattrocentoSans = Quattrocento_Sans({
+const quattrocentoSans = Quattrocento_Sans({
 	subsets: ['latin'],
 	weight: ["400" , "700"],
 	variable: "--font-quattrocento-sans",

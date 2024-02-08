@@ -1,13 +1,21 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { SeriesContext } from "../Contexts/SeriesContext";
 
 export default function UploadButton() {
 	const seriesCtx = useContext(SeriesContext);
 	const [isReady, setIsReady] = React.useState<boolean>(false);
-	if (seriesCtx.name && seriesCtx.images && seriesCtx.characters) {
-		setIsReady(true);
-	}
+	useEffect(() => {
+		if (
+			seriesCtx.name &&
+			seriesCtx.images.length > 0 &&
+			seriesCtx.characters.length > 0
+		) {
+			setIsReady(true);
+		} else {
+			setIsReady(false);
+		}
+	}, [seriesCtx]);
 	const sendData = async () => {
 		try {
 			const response = await fetch("/api/upload", {
@@ -25,12 +33,17 @@ export default function UploadButton() {
 			console.error(error);
 		}
 	};
-	const submitContent = () => {
-		console.log(isReady)
-		if (isReady) {
+
+	const submitContent = (e: React.MouseEvent<HTMLButtonElement>) => {
+		if (isReady == true) {
 			sendData();
+			console.log("in");
+			seriesCtx.setName("");
+			seriesCtx.setCharacters([]);
+			seriesCtx.setImages([]);
 		}
 	};
+
 	return (
 		<button
 			className={`${

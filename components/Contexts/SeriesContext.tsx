@@ -3,10 +3,15 @@ export type SeriesContextObj = {
 	name: string;
 	images: string[];
 	characters: string[];
-	setName: (text: string) => void;
+	setName: (name: string) => void;
 	setImages: (images: string[]) => void;
 	setCharacters: (characters: string[]) => void;
 }; //first declare the variable types
+export type ContextObj = {
+	name: string;
+	images: string[];
+	characters: string[];
+};
 export const SeriesContext = React.createContext<SeriesContextObj>({
 	name: "",
 	images: [],

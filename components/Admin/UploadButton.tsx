@@ -26,6 +26,7 @@ export default function UploadButton() {
 		}
 	};
 	const submitContent = () => {
+		console.log(isReady)
 		if (isReady) {
 			sendData();
 		}
@@ -33,7 +34,7 @@ export default function UploadButton() {
 	return (
 		<button
 			className={`${
-				isReady ? "bg-darkerCyan" : "bg-cyan"
+				isReady ? "bg-cyan" : "bg-darkerCyan"
 			} mt-16 text-white w-full h-8 rounded-lg`}
 			onClick={submitContent}
 		>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { SeriesContext } from "../Contexts/SeriesContext";
 import tvShows from "./showList";
 
@@ -7,6 +7,7 @@ export default function SeriesOptions() {
 	const seriesCtx = useContext(SeriesContext);
 	const selectShow = (e: React.ChangeEvent<HTMLSelectElement>): void => {
 		seriesCtx.setName(e.target.value);
+		console.log(e.target.value)
 	};
 	return (
 		<>
@@ -19,8 +20,8 @@ export default function SeriesOptions() {
 				<option
 					value="Select"
 					className="bg-cyan text-white"
-					selected
-					disabled
+					defaultValue={"true"}
+					
 				>
 					Select TV Series
 				</option>

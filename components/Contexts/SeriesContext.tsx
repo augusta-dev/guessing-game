@@ -13,7 +13,7 @@ export type ContextObj = {
 	characters: string[];
 };
 export const SeriesContext = React.createContext<SeriesContextObj>({
-	name: 'F',
+	name: '',
 	images: [],
 	characters: [],
 	setName: (text: string) => {},

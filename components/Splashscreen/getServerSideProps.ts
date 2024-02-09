@@ -1,6 +1,6 @@
 const getServerSideProps = async () => {
    try{ const getData = async () =>{
-        let list = await fetch("/api/list")
+        let list = await fetch("https://tv-shows-guessing-game.vercel.app/api/list")
         console.log(list)
         return list.json()
     }

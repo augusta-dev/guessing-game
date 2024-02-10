@@ -24,7 +24,7 @@ export default function ScoreKeeper() {
 				Score Keeper
 			</h1>
 			{number <= 0 && (
-				<div className="flex w-full justify-between">
+				<div className="flex w-full justify-between px-[2vw]">
 					<input
 						className="italic placeholder:text-darkCyan text-lg bg-transparent outline-none focus:border-b-[0.5px] border-darkCyan w-96"
 						type="number"
@@ -36,7 +36,7 @@ export default function ScoreKeeper() {
 				</div>
 			)}
 			{number > 0 && (
-				<div className="w-full flex flex-row justify-between italic">
+				<div className="w-full flex flex-row justify-between italic px-[2vw]">
 					<p className="inline">{value}</p>
 					<button
 						className="text-darkCyan"

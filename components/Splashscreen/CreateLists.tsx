@@ -1,8 +1,8 @@
 "use client";
 import ListContext from "../Contexts/ListContext";
-import React, { useContext, ReactNode, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import getServerSideProps from "./getServerSideProps";
-const CreateLists: React.FC<{}> = (props) => {
+const CreateLists: React.FC = () => {
 	const listCtx = useContext(ListContext);
 
 	const [data, setData] = React.useState<string[]>([]);
@@ -25,6 +25,7 @@ const CreateLists: React.FC<{}> = (props) => {
 	}, []);
 	useEffect(() => {
 		const number = listCtx.index;
+		console.log(number, fullData);
 		if (fullData.length > 0) {
 			listCtx.setCharacters(fullData[number].characters);
 			listCtx.setImages(fullData[number].images);

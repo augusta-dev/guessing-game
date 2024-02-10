@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import "tailwindcss/tailwind.css"; //never forget this
 import localFont from "next/font/local";
-import { Amaranth, El_Messiri, Poppins, Quattrocento_Sans } from 'next/font/google'
+import ListProvider from "@/components/Contexts/ListProvider";
+import SeriesProvider from "@/components/Contexts/SeriesProvider";
+import {
+	Amaranth,
+	El_Messiri,
+	Poppins,
+	Quattrocento_Sans,
+} from "next/font/google";
 
 export const metadata: Metadata = {
 	title: "Guess Who: TV Show Edition",
@@ -10,23 +17,23 @@ export const metadata: Metadata = {
 };
 
 const amaranth = Amaranth({
-	subsets: ['latin'],
-	weight: ["400" , "700"],
+	subsets: ["latin"],
+	weight: ["400", "700"],
 	variable: "--font-amaranth",
 });
 const elMessiri = El_Messiri({
-	subsets: ['latin'],
-	weight: ["400" , '500', '600', "700"],
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
 	variable: "--font-el-messiri",
 });
 const poppins = Poppins({
-	subsets: ['latin'],
-	weight: ["400" , '200', "700"],
+	subsets: ["latin"],
+	weight: ["400", "200", "700"],
 	variable: "--font-poppins",
 });
 const quattrocentoSans = Quattrocento_Sans({
-	subsets: ['latin'],
-	weight: ["400" , "700"],
+	subsets: ["latin"],
+	weight: ["400", "700"],
 	variable: "--font-quattrocento-sans",
 });
 
@@ -41,8 +48,10 @@ export default function RootLayout({
 				className={`${amaranth.variable} ${poppins.variable} ${elMessiri.variable} ${quattrocentoSans.variable} bg-darkNavy  min-w-dvw min-h-dvh w-full h-full text-cyan font-quattrocentoSans`}
 			>
 				<div className="absolute bg-cyan blur-[120px] -left-40 top-32 h-80 w-80 -z-40 "></div>
-				<div className="px-3 py-8 z-40 flex w-full h-full align-middle items-center flex-col justify-between ">
-					{children}
+				<div className="z-40 flex w-full h-full align-middle items-center flex-col justify-between ">
+					<ListProvider>
+						<SeriesProvider>{children}</SeriesProvider>
+					</ListProvider>
 				</div>
 			</body>
 		</html>

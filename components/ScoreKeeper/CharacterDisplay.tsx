@@ -2,6 +2,7 @@
 import React, { useEffect, useContext } from "react";
 import CharacterImage from "./CharacterImage";
 import ListContext from "../Contexts/ListContext";
+import CreateLists from "../Splashscreen/CreateLists";
 export default function CharacterDisplay() {
 	//activate function when next button is clicked
 	//activate second funtion getting the last element when previous button is clicked
@@ -12,6 +13,7 @@ export default function CharacterDisplay() {
 	const [prevIsDisabled, setPrevIsDisabled] = React.useState<boolean>(true);
 	const [nextIsDisabled, setNextIsDisabled] = React.useState<boolean>(false);
 	const [propnumber, setNumber] = React.useState<number>(0);
+
 	const changeCharacter = () => {
 		if (counter <= num) {
 			const number = Math.floor(Math.random() * num);
@@ -20,8 +22,6 @@ export default function CharacterDisplay() {
 				setCounter(counter + 1);
 				console.log(entries);
 			} else changeCharacter();
-		} else {
-			setNextIsDisabled(true);
 		}
 	};
 
@@ -30,7 +30,8 @@ export default function CharacterDisplay() {
 			setPrevIsDisabled(false);
 			changeCharacter();
 			setNumber(entries[entries.length - 1]);
-			console.log(entries[entries.length - 1]);
+			
+			console.log(entries, 'click')
 		}
 	};
 	const getPrevChar = () => {
@@ -38,13 +39,13 @@ export default function CharacterDisplay() {
 			const updatedEntries = entries.slice(0, -1);
 			setEntries(updatedEntries);
 			setNumber(entries[entries.length - 1]);
-			console.log(entries[entries.length - 1]);
+			console.log(entries, 'click')
+
 		}
 	};
 	useEffect(() => {
 		changeCharacter();
-		console.log(num);
-	}, [num]);
+	}, []);
 	useEffect(() => {
 		entries.length > 0 ? setPrevIsDisabled(false) : setPrevIsDisabled(true);
 		entries.length === num
@@ -52,11 +53,18 @@ export default function CharacterDisplay() {
 			: setNextIsDisabled(false);
 	}, [entries]);
 
-	return (
-		<div>
-			{/* <CharacterImage number={propnumber}></CharacterImage> */}
-			<button onClick={getPrevChar}>Prev</button>
-			<button onClick={getNextChar}>Next</button>
-		</div>
-	);
+	if (num === 0) {
+		return (
+			<div className="font-elMessiri text-semibold text-xl">
+				Please reselect the series
+			</div>
+		);
+	} else
+		return (
+			<div>
+				<CharacterImage number={propnumber}></CharacterImage>
+				<button onClick={getPrevChar}>Prev</button>
+				<button onClick={getNextChar}>Next</button>
+			</div>
+		);
 }

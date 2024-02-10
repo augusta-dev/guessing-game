@@ -1,9 +1,6 @@
 import React from "react";
 import CharacterDisplay from "@/components/ScoreKeeper/CharacterDisplay";
+import ListProvider from "@/components/Contexts/ListProvider";
 export default function Scorekeeper() {
-	return (
-		<div>
-			<CharacterDisplay></CharacterDisplay>
-		</div>
-	);
+	return <CharacterDisplay></CharacterDisplay>;
 }

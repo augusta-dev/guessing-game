@@ -62,7 +62,6 @@ export default function Splashscreen() {
 					</Link>
 				);
 			})}
-			<CreateLists />
 		</div>
 	);
 }

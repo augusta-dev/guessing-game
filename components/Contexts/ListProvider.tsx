@@ -3,7 +3,9 @@ import ListContext, { ListContextObj } from "./ListContext";
 import React, { ReactNode } from "react";
 const ListProvider: React.FC<{ children: ReactNode }> = (props) => {
 	const [seriesName, setSeriesName] = React.useState<string>("");
-	const setNamesHandler = (name: string) => setSeriesName(name);
+	const setNamesHandler = (name: string) => {
+		console.log(name)
+		setSeriesName(name);}
 
 	const [seriesFull, setSeriesFull] = React.useState<string[]>([]);
 	const setFullHandler = (images: string[]) => {

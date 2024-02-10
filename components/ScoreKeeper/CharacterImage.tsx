@@ -5,7 +5,6 @@ import Image from "next/image";
 const CharacterImage: React.FC<{ number: number }> = (props) => {
 	const listCtx = useContext(ListContext);
 	const image = listCtx.images[props.number];
-	const name = listCtx.characters[props.number];
 	return (
 		<>
 			<Image
@@ -14,7 +13,6 @@ const CharacterImage: React.FC<{ number: number }> = (props) => {
 				width="1000"
 				height="1000"
 			></Image>
-			<h1>{name}</h1>
 		</>
 	);
 };

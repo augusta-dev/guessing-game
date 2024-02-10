@@ -2,17 +2,18 @@
 import React, { useEffect, useContext } from "react";
 import CharacterImage from "./CharacterImage";
 import ListContext from "../Contexts/ListContext";
-import CreateLists from "../Splashscreen/CreateLists";
+import Arrow from "../UI/Arrow";
+
 export default function CharacterDisplay() {
-	//activate function when next button is clicked
-	//activate second funtion getting the last element when previous button is clicked
 	const listCtx = useContext(ListContext);
 	const num = listCtx.images.length;
-	const [entries, setEntries] = React.useState<number[]>([]);
+	const [entries, setEntries] = React.useState<number[]>([0]);
 	const [counter, setCounter] = React.useState<number>(0);
 	const [prevIsDisabled, setPrevIsDisabled] = React.useState<boolean>(true);
 	const [nextIsDisabled, setNextIsDisabled] = React.useState<boolean>(false);
 	const [propnumber, setNumber] = React.useState<number>(0);
+	const [changeColor, setChangeColor] = React.useState<boolean>(false);
+	const name = listCtx.characters[propnumber];
 
 	const changeCharacter = () => {
 		if (counter <= num) {
@@ -26,21 +27,23 @@ export default function CharacterDisplay() {
 	};
 
 	const getNextChar = () => {
+		setChangeColor(true);
+		setTimeout(() => setChangeColor(false), 2500);
 		if (!nextIsDisabled) {
 			setPrevIsDisabled(false);
 			changeCharacter();
 			setNumber(entries[entries.length - 1]);
-			
-			console.log(entries, 'click')
+			console.log(entries, "click");
 		}
 	};
 	const getPrevChar = () => {
+		setChangeColor(true);
+		setTimeout(() => setChangeColor(false), 1000);
 		if (!prevIsDisabled) {
 			const updatedEntries = entries.slice(0, -1);
 			setEntries(updatedEntries);
 			setNumber(entries[entries.length - 1]);
-			console.log(entries, 'click')
-
+			console.log(entries, "click");
 		}
 	};
 	useEffect(() => {
@@ -63,8 +66,25 @@ export default function CharacterDisplay() {
 		return (
 			<div>
 				<CharacterImage number={propnumber}></CharacterImage>
-				<button onClick={getPrevChar}>Prev</button>
-				<button onClick={getNextChar}>Next</button>
+				<div className="flex justify-between -mt-1 px-2">
+					<button onClick={getPrevChar}>
+						{" "}
+						<Arrow
+							colour={`${changeColor ? "blue" : "white"}`}
+							rotate="rotate(0)"
+						/>
+					</button>
+					<h1 className="font-semibold font-elMessiri text-white text-3xl mt-2">
+						{name}
+					</h1>
+					<button onClick={getNextChar}>
+						{" "}
+						<Arrow
+							colour={`${changeColor ? "blue" : "white"}`}
+							rotate="rotate(180)"
+						/>
+					</button>
+				</div>
 			</div>
 		);
 }

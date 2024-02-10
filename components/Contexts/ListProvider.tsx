@@ -20,15 +20,20 @@ const ListProvider: React.FC<{ children: ReactNode }> = (props) => {
 	const setCharactersHandler = (characters: string[]) =>
 		setSeriesCharacters(characters);
 
+	const [seriesIndex, setSeriesIndex] = React.useState<number>(15);
+	const setIndexHandler = (index: number) => setSeriesIndex(index);
+
 	const listContext: ListContextObj = {
 		name: seriesName,
 		full: seriesFull,
 		images: seriesImages,
 		characters: seriesCharacters,
+		index: seriesIndex,
 		setName: setNamesHandler,
 		setImages: setImagesHandler,
 		setCharacters: setCharactersHandler,
 		setFull: setFullHandler,
+		setIndex: setIndexHandler,
 	};
 	return (
 		<ListContext.Provider value={listContext}>

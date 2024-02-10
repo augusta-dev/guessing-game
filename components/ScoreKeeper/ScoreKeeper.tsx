@@ -36,7 +36,7 @@ export default function ScoreKeeper() {
 				</div>
 			)}
 			{number > 0 && (
-				<div className="w-full flex flex-row justify-between italic px-[2vw]">
+				<div className="w-full flex flex-row justify-between italic px-[4vw]">
 					<p className="inline">{value}</p>
 					<button
 						className="text-darkCyan"

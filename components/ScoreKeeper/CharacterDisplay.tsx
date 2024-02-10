@@ -3,6 +3,7 @@ import React, { useEffect, useContext } from "react";
 import CharacterImage from "./CharacterImage";
 import ListContext from "../Contexts/ListContext";
 import Arrow from "../UI/Arrow";
+import ScoreKeeper from "./ScoreKeeper";
 
 export default function CharacterDisplay() {
 	const listCtx = useContext(ListContext);
@@ -56,35 +57,29 @@ export default function CharacterDisplay() {
 			: setNextIsDisabled(false);
 	}, [entries]);
 
-	if (num === 0) {
-		return (
-			<div className="font-elMessiri text-semibold text-xl">
-				Please reselect the series
+	return (
+		<div>
+			<CharacterImage number={propnumber}></CharacterImage>
+			<div className="flex justify-between -mt-1 px-2">
+				<button onClick={getPrevChar}>
+					{" "}
+					<Arrow
+						colour={`${changeColor ? "blue" : "white"}`}
+						rotate="rotate(0)"
+					/>
+				</button>
+				<h1 className="font-semibold font-elMessiri text-white text-3xl mt-2">
+					{name}
+				</h1>
+				<button onClick={getNextChar}>
+					{" "}
+					<Arrow
+						colour={`${changeColor ? "blue" : "white"}`}
+						rotate="rotate(180)"
+					/>
+				</button>
 			</div>
-		);
-	} else
-		return (
-			<div>
-				<CharacterImage number={propnumber}></CharacterImage>
-				<div className="flex justify-between -mt-1 px-2">
-					<button onClick={getPrevChar}>
-						{" "}
-						<Arrow
-							colour={`${changeColor ? "blue" : "white"}`}
-							rotate="rotate(0)"
-						/>
-					</button>
-					<h1 className="font-semibold font-elMessiri text-white text-3xl mt-2">
-						{name}
-					</h1>
-					<button onClick={getNextChar}>
-						{" "}
-						<Arrow
-							colour={`${changeColor ? "blue" : "white"}`}
-							rotate="rotate(180)"
-						/>
-					</button>
-				</div>
-			</div>
-		);
+			<ScoreKeeper></ScoreKeeper>
+		</div>
+	);
 }

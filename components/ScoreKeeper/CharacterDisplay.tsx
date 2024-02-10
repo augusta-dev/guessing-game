@@ -58,9 +58,9 @@ export default function CharacterDisplay() {
 	}, [entries]);
 
 	return (
-		<div>
+		<div className="w-full">
 			<CharacterImage number={propnumber}></CharacterImage>
-			<div className="flex justify-between -mt-1 mx-[10vw]">
+			<div className="flex justify-between -mt-1 px-[5vw]">
 				<button onClick={getPrevChar}>
 					{" "}
 					<Arrow

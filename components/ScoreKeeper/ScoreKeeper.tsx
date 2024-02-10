@@ -19,12 +19,12 @@ export default function ScoreKeeper() {
 		setNumber(0);
 	};
 	return (
-		<div className="px-4 pt-2 flex w-full flex-col">
+		<div className="px-4 pt-2 ml-3/5 w-full flex flex-col">
 			<h1 className="font-elMessiri text-3xl text-white font-semibold self-end">
 				Score Keeper
 			</h1>
 			{number <= 0 && (
-				<div className="flex w-full justify-between mx-[10vw]">
+				<div className="flex justify-between px-[5vw]">
 					<input
 						className="italic placeholder:text-darkCyan text-lg bg-transparent outline-none focus:border-b-[0.5px] border-darkCyan w-96"
 						type="number"
@@ -36,7 +36,7 @@ export default function ScoreKeeper() {
 				</div>
 			)}
 			{number > 0 && (
-				<div className="w-full flex flex-row justify-between italic mx-[10vw]">
+				<div className="flex flex-row justify-between italic px-[5vw]">
 					<p className="inline">{value}</p>
 					<button
 						className="text-darkCyan"

@@ -12,6 +12,7 @@ const CharacterImage: React.FC<{ number: number }> = (props) => {
 				alt="character"
 				width="1000"
 				height="1000"
+				className="w-[100vw]"
 			></Image>
 		</>
 	);

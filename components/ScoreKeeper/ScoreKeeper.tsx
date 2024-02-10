@@ -24,7 +24,7 @@ export default function ScoreKeeper() {
 				Score Keeper
 			</h1>
 			{number <= 0 && (
-				<div className="flex w-full justify-between px-[2vw]">
+				<div className="flex w-full justify-between px-[4vw]">
 					<input
 						className="italic placeholder:text-darkCyan text-lg bg-transparent outline-none focus:border-b-[0.5px] border-darkCyan w-96"
 						type="number"

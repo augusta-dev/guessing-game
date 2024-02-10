@@ -60,7 +60,7 @@ export default function CharacterDisplay() {
 	return (
 		<div>
 			<CharacterImage number={propnumber}></CharacterImage>
-			<div className="flex justify-between -mt-1 px-[2vw]">
+			<div className="flex justify-between -mt-1 px-[4vw]">
 				<button onClick={getPrevChar}>
 					{" "}
 					<Arrow

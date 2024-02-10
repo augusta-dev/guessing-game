@@ -28,7 +28,7 @@ export default function CharacterDisplay() {
 
 	const getNextChar = () => {
 		setChangeColor(true);
-		setTimeout(() => setChangeColor(false), 2500);
+		setTimeout(() => setChangeColor(false), 250);
 		if (!nextIsDisabled) {
 			setPrevIsDisabled(false);
 			changeCharacter();
@@ -38,7 +38,7 @@ export default function CharacterDisplay() {
 	};
 	const getPrevChar = () => {
 		setChangeColor(true);
-		setTimeout(() => setChangeColor(false), 1000);
+		setTimeout(() => setChangeColor(false), 500);
 		if (!prevIsDisabled) {
 			const updatedEntries = entries.slice(0, -1);
 			setEntries(updatedEntries);
